@@ -7,7 +7,6 @@ import SearchIcon from '@mui/icons-material/Search';
 
 
 const Header = () => {
-
     return (
         <div className="navbar">
             <Container maxWidth="lg">

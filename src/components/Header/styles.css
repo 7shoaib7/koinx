@@ -12,7 +12,7 @@
 }
 
 
-.navbar-left{
+.navbar-left {
     display: flex;
 }
 
@@ -52,8 +52,9 @@
     .navbar-menu-large {
         display: block;
     }
+
     .navbar-logo {
-margin-left:1rem;
+        margin-left: 1rem;
     }
 
 }
