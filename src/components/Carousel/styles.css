@@ -1,13 +1,17 @@
 .carousel {
-    /* padding:1rem; */
-    margin-top: 2rem
+    padding: 2rem 0 0 0;
+    background: linear-gradient(180deg, #F8FAFC 0%, rgba(248, 250, 252, 0) 170.94%);
+}
+
+.carousel-wrapper {
+    background: linear-gradient(180deg, #F8FAFC 0%, rgba(248, 250, 252, 0) 170.94%);
 }
 
 .carousel-item {
     width: 449.12px;
     height: 132.96px;
     background: #FFFFFF;
-    box-shadow: 0px 1.47737px 17.7284px 4.43211px rgba(208, 214, 227, 0.3);
+    /* box-shadow: 0px 1.47737px 17.7284px 4.43211px rgba(208, 214, 227, 0.3); */
     border-radius: 12px;
     display: flex;
     gap: 0.5rem;
@@ -24,6 +28,7 @@
     display: flex;
     flex-direction: column;
     margin-top: 0.5rem;
+    margin-left: 0.5rem;
 }
 
 .carousel-item-text-top {
@@ -36,10 +41,159 @@
 }
 
 .carousel-item-text-bottom {
-    /* font-family: 'Inter'; */
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
     letter-spacing: -0.03em;
     color: #000000;
+}
+
+.rec.rec-arrow-left {
+    width: 48px;
+    height: 48px;
+    background: #A8B0C1;
+    color: #FFFFFF
+}
+
+.rec.rec-arrow-right {
+    width: 48px;
+    height: 48px;
+    background: #A8B0C1;
+    color: #FFFFFF
+}
+
+.rec.rec-pagination {
+    display: none;
+}
+
+.carousel-bottom-content {
+    margin-top: 1rem;
+    padding: 1rem;
+}
+
+.carousel-bottom-content .top-100 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 35px;
+}
+
+.table-head {
+    margin-top: 2rem;
+    display: flex;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.favourites {
+    width: 94px;
+    height: 32px;
+    background: #EFF2F5;
+    border-radius: 8px;
+}
+
+.favourites-text {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    color: #000000;
+}
+
+.favourites-star {
+    width: 13px;
+    height: 13px;
+}
+
+.cryptoCurrencies {
+    width: 120px;
+    height: 32px;
+    background: #EFF2F5;
+    border-radius: 8px;
+    margin-left: 0.8rem;
+}
+
+.crypto-text {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+    color: #3861FB;
+}
+
+.defi {
+    width: 41px;
+    height: 32px;
+    background: #EFF2F5;
+    border-radius: 8px;
+    margin-left: 0.8rem;
+}
+
+.defi-text {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.03em;
+    color: #5B667C;
+}
+
+.nft {
+    width: 129px;
+    height: 32px;
+    background: #EFF2F5;
+    border-radius: 8px;
+    margin-left: 0.8rem;
+}
+
+.nft-text {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+    color: #5B667C;
+}
+
+@media (max-width: 767px) {
+    .rec-arrow-left {
+        display: none;
+    }
+
+    .rec-arrow-right {
+        display: none;
+    }
+
+    #container-carousel {
+        padding: 0;
+    }
+
+    .carousel {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .rec.rec-pagination {
+        display: block;
+        margin: 0;
+    }
+
+    .rec.rec-dot {
+        width: 8px;
+        height: 8px;
+        border: 1.2px solid #94B5FC;
+        box-shadow: none;
+    }
+
+    .rec.rec-dot_active {
+        background: #0052FE;
+        border: none;
+        box-shadow: none !important;
+    }
+
+    .table-head {
+        display: none;
+    }
 }

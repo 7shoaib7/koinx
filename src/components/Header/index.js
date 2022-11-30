@@ -9,7 +9,7 @@ import SearchIcon from '@mui/icons-material/Search';
 const Header = () => {
     return (
         <div className="navbar">
-            <Container maxWidth="lg">
+            <Container maxWidth="lg" className="navbar-container" style={{paddingLeft:"0"}}>
                 <div className="navbar-content">
                     <div className="navbar-left">
                         <div className="navbar-menu-large"><MenuIcon /></div>

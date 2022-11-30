@@ -4,6 +4,7 @@ import {useState,useEffect} from 'react';
 import Header from "./components/Header";
 import axios from "axios";
 import CarouselView from "./components/Carousel";
+import Table from "./components/Table";
 
 function App() {
 const [data,setData] = useState([])
@@ -22,6 +23,7 @@ return (
     <div className="App">
            <Header/>
            <CarouselView />
+           <Table />
     </div>
   );
 }
