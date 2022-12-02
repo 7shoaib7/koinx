@@ -16,7 +16,7 @@ import TableRow from '@mui/material/TableRow';
 import Modal from '@mui/material/Modal';
 
 
-const TableView = ({ data }) => {
+const CryptoCurrencies = ({ data }) => {
     const [open, setOpen] = useState(false);
     const [rowItem, setRowItem] = useState("")
 
@@ -82,7 +82,7 @@ const TableView = ({ data }) => {
                                     <TableCell className="td7">
                                         <div style={{ display: 'flex', flexDirection: 'column' }}>
                                             <span className="coin-volume1">$51,502,989,963,439</span>
-                                            <span className="coin-volume2">932,071 BTC</span>
+                                            <span className="coin-volume2">932,071 {item.symbol.toUpperCase()}</span>
                                         </div>
                                     </TableCell>
                                     <TableCell className="td8">
@@ -146,7 +146,7 @@ const TableView = ({ data }) => {
                                 <span className="coin-name">{rowItem.name}</span>
                             </div>
                             <div className="modal-box-header-right">
-                                <img src={ModalCross} alt="cross" onClick={handleClose} />
+                                <img src={ModalCross} alt="cross" onClick={handleClose} style={{cursor: 'pointer'}}/>
                             </div>
                         </div>
 
@@ -179,7 +179,7 @@ const TableView = ({ data }) => {
                             <div className="modal-box-market-cap modal-box-bottom-flex modal-box-margin">
                                 <span className="volume-24H">VOLUME(24H)</span>
                                 <div>
-                                <span className="coin-volume1">$51,502,989,963,439</span><span className="coin-volume2"> (932,071 BTC)</span>
+                                <span className="coin-volume1">$51,502,989,963,439</span><span className="coin-volume2"> (932,071 {rowItem.symbol.toUpperCase()})</span>
                                 </div>
                                
                             </div>
@@ -197,7 +197,7 @@ const TableView = ({ data }) => {
     )
 }
 
-export default TableView
+export default CryptoCurrencies
 
 
 // {

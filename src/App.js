@@ -4,7 +4,7 @@ import {useState,useEffect} from 'react';
 import Header from "./components/Header";
 import axios from "axios";
 import CarouselView from "./components/Carousel";
-import TableView from "./components/TableView";
+import CryptoCurrencies from "./components/CryptoCurrencies";
 
 function App() {
 const [data,setData] = useState([])
@@ -23,7 +23,7 @@ return (
     <div className="App">
            <Header/>
            <CarouselView />
-           <TableView data={data} />
+           <CryptoCurrencies data={data} />
     </div>
   );
 }
