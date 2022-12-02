@@ -134,7 +134,8 @@ const CryptoCurrencies = ({ data }) => {
                         </TableBody>
                     </Table>
                 </TableContainer>
-                {data.find(item => item === rowItem) ? (<Modal
+             {rowItem ? (
+                <Modal
                     open={open}
                     onClose={handleClose}
                     className="modal"
@@ -189,9 +190,8 @@ const CryptoCurrencies = ({ data }) => {
                             </div>
                         </div>
                     </div>
-                </Modal>)
-                    : null}
-
+                </Modal>
+             ):null}   
             </Container>
         </div >
     )
