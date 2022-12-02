@@ -15,8 +15,13 @@
 
 
 
-.th3 {
+.th3,
+.th4 {
     text-align: end !important;
+}
+
+.th5 {
+    text-align: center !important;
 }
 
 .th4 {
@@ -37,6 +42,10 @@
     font-size: 11px !important;
     line-height: 18px !important;
     color: #000000 !important;
+}
+
+.th3 {
+    text-align: left !important;
 }
 
 .th6,
@@ -140,9 +149,27 @@
 }
 
 
-@media(max-width: 767px) {
+.tableLarge {
+    display: block !important;
+}
 
-    .th1,
+.tableSmall {
+    display: none !important;
+}
+
+
+
+@media(max-width: 767px) {
+    .tableLarge {
+        display: none !important;
+    }
+
+    .tableSmall {
+        display: block !important;
+    }
+
+
+    /* .th1,
     .th5,
     .th6,
     .th7,
@@ -158,10 +185,70 @@
     .td9,
     .tdMenu {
         display: none !important;
-    }
+    } */
 
 
     .th3 {
         text-align: start !important;
+    }
+
+    .modal {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-box {
+        position: absolute;
+        width: 290px;
+        height: 340px;
+        background: #FFFFFF;
+        border: 1px solid #DBDCDF;
+        border-radius: 8px;
+        padding: 1rem;
+    }
+
+    .modal-box-header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .modal-box-header-left {
+        display: flex;
+    }
+
+    .modal-box-top {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .modal-box-24H {
+        margin-left: 1rem;
+        ;
+    }
+
+    .modal-top-flex {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+
+    .modal-box-bottom-flex {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .modal-box-margin {
+        margin-top: 1.5rem;
+    }
+
+    .market-cap,.volume-24H,.circulating {
+        font-weight: 700;
+        font-size: 11px;
+        line-height: 18px;
+        color: #0F1629;
     }
 }
