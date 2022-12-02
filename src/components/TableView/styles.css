@@ -1,0 +1,167 @@
+.tableHead {
+    width: 100% !important;
+}
+
+
+.th1,
+.th2,
+.th3 {
+    font-style: normal;
+    font-weight: 600 !important;
+    font-size: 12px !important;
+    line-height: 18px !important;
+    color: #000000 !important;
+}
+
+
+
+.th3 {
+    text-align: end !important;
+}
+
+.th4 {
+    font-style: normal !important;
+    font-weight: 700 !important;
+    font-size: 12px !important;
+    line-height: 18px !important;
+    color: #000000 !important;
+    text-align: end !important;
+}
+
+.th5,
+.th6,
+.th7,
+.th8 {
+    font-style: normal !important;
+    font-weight: 700 !important;
+    font-size: 11px !important;
+    line-height: 18px !important;
+    color: #000000 !important;
+}
+
+.th6,
+.th7 {
+    text-align: center !important;
+}
+
+.table-row-data {
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.coin-image {
+    width: 24px;
+    height: 24px
+}
+
+.coin-name {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    color: #222531;
+    margin-left: 0.5rem
+}
+
+.coin-symbol {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    color: #808A9D;
+    margin-left: 0.5rem
+}
+
+.coin-price {
+    font-style: normal !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    line-height: 22px !important;
+    color: #000000 !important;
+}
+
+
+
+.coin-24H-text {
+    font-style: normal !important;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    line-height: 16px !important;
+    color: #EA3943 !important
+}
+
+
+.coin-7D-text {
+    font-style: normal !important;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    line-height: 16px !important;
+    color: #16C784;
+}
+
+.coin-market-cap {
+    font-style: normal !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    line-height: 22px !important;
+    color: #000000 !important;
+}
+
+.coin-volume1 {
+    font-style: normal !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    line-height: 22px !important;
+    letter-spacing: -0.035em !important;
+    color: #000000 !important;
+}
+
+.coin-volume2 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: -0.035em;
+    color: #000000;
+    opacity: 0.5;
+    text-align: center;
+}
+
+.coin-circulating-supply {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.015em;
+    color: #000000;
+}
+
+
+@media(max-width: 767px) {
+
+    .th1,
+    .th5,
+    .th6,
+    .th7,
+    .th8 {
+        display: none !important;
+    }
+
+    .td1,
+    .td5,
+    .td6,
+    .td7,
+    .td8,
+    .td9,
+    .tdMenu {
+        display: none !important;
+    }
+
+
+    .th3 {
+        text-align: start !important;
+    }
+}
