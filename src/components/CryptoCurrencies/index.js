@@ -52,8 +52,7 @@ const CryptoCurrencies = ({ data,page,setPage,rowsPerPage}) => {
                         </TableHead>
 
                         <TableBody>
-                            {data.slice((page - 1) * rowsPerPage, page * rowsPerPage)
-                                .map((item, index) => (
+                            {data.map((item, index) => (
                                     <TableRow key={item.id}>
                                         <TableCell className="tdStar"><img src={TableCellStar} alt="cellStar" /></TableCell>
                                         <TableCell className="td1">{(page-1)*rowsPerPage+index+1}</TableCell>
@@ -112,8 +111,7 @@ const CryptoCurrencies = ({ data,page,setPage,rowsPerPage}) => {
                         </TableHead>
 
                         <TableBody>
-                            {data.slice((page - 1) * rowsPerPage, page * rowsPerPage)
-                                .map((item, index) => (
+                            {data.map((item, index) => (
                                     <TableRow key={item.id} onClick={(event) => handleOpen(event, item)} style={{ cursor: "pointer" }}>
                                         <TableCell className="tdStar"><img src={TableCellStar} alt="cellStar" /></TableCell>
                                         <TableCell className="td1">{(page-1)*rowsPerPage+index+1}</TableCell>
@@ -201,7 +199,8 @@ const CryptoCurrencies = ({ data,page,setPage,rowsPerPage}) => {
                     <Pagination
                         page={page}
                         onChange={(e, value) => setPage(value)}
-                        count={Math.ceil(data.length / rowsPerPage)}
+                        // count={Math.ceil(data.length / rowsPerPage)}
+                        count={rowsPerPage}
                         variant="outlined"
                         size="small"
                         color="primary" 
@@ -228,3 +227,5 @@ export default CryptoCurrencies
 //      "high_24h": 1389885,
 //     "circulating_supply": 19220606,
 // }
+
+// data.slice((page - 1) * rowsPerPage, page * rowsPerPage)

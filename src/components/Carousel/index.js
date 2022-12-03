@@ -19,7 +19,7 @@ const breakPoints = [
 
 const CarouselView = ({setRowsPerPage}) => {
   // const [items, setItems] = useState([1, 2, 3, 4, 5, 6, 7, 8]);
-  const [rows, setRows] = useState(null);
+  const [rows, setRows] = useState("");
   const handleChange = (event) => {
     setRows(event.target.value);
     setRowsPerPage(event.target.value);
