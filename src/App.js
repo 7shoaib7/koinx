@@ -7,10 +7,13 @@ import CarouselView from "./components/Carousel";
 import CryptoCurrencies from "./components/CryptoCurrencies";
 
 function App() {
-const [data,setData] = useState([])
+const [data,setData] = useState([]);
+
+const [page, setPage] = useState(1);
+const [rowsPerPage,setRowsPerPage] = useState(10);
 
 const fetchData = async() =>{
-   const response = await axios.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=inr&amp;order=market_cap_desc&amp;per_page=100&amp;page=1&amp;sparkline=false&amp;price_change_percentage=24h%2C7d")
+   const response = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=inr&amp;order=market_cap_desc&amp;per_page=100&amp;page=1&amp;sparkline=false&amp;price_change_percentage=24h%2C7d`)
    const result =  response.data;
      setData(result);
 }
@@ -18,12 +21,14 @@ const fetchData = async() =>{
 useEffect(() => {
    fetchData()
 },[])
+
+
   
 return (
     <div className="App">
            <Header/>
-           <CarouselView />
-           <CryptoCurrencies data={data} />
+           <CarouselView setRowsPerPage={setRowsPerPage}/>
+           <CryptoCurrencies data={data} page={page} setPage={setPage} rowsPerPage={rowsPerPage}/>
     </div>
   );
 }

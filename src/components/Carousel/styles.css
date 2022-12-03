@@ -81,6 +81,29 @@
 .table-head {
     margin-top: 2rem;
     display: flex;
+    justify-content: space-between;
+}
+
+.table-head-left {
+    display: flex;
+}
+
+.show-rows {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    letter-spacing: -0.03em;
+    color: #5B667C;
+}
+
+.select-container {
+    width: 67px;
+    margin-left: 1rem;
+    height: 27px;
+    background: #EFF2F5;
+    border-radius: 8px;
+    outline: none;
 }
 
 .flex {

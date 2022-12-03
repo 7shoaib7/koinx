@@ -158,7 +158,7 @@
 }
 
 .pagination {
-    margin-top: 1rem;
+    margin:2rem;
     display: flex;
     justify-content: flex-end;
 }
@@ -256,5 +256,8 @@
         font-size: 11px;
         line-height: 18px;
         color: #0F1629;
+    }
+    .pagination{
+        justify-content: center;
     }
 }

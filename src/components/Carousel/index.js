@@ -5,6 +5,8 @@ import Carousel1 from "../../assets/Carousel1.svg";
 import Carousel2 from "../../assets/Carousel2.svg";
 import Carousel3 from "../../assets/Carousel3.svg";
 import Star from "../../assets/Star.svg";
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
 import "./styles.css"
 
 const breakPoints = [
@@ -15,8 +17,13 @@ const breakPoints = [
 ];
 
 
-const CarouselView = () => {
+const CarouselView = ({setRowsPerPage}) => {
   // const [items, setItems] = useState([1, 2, 3, 4, 5, 6, 7, 8]);
+  const [rows, setRows] = useState(null);
+  const handleChange = (event) => {
+    setRows(event.target.value);
+    setRowsPerPage(event.target.value);
+  };
 
   return (
     <div className="carousel">
@@ -67,23 +74,39 @@ const CarouselView = () => {
           <span className="top-100">Top 100 Cryptocurrencies by Market Cap</span>
 
           <div className="table-head">
-            <div className="favourites flex">
-              <img src={Star} className="favourites-star" />
-              <span className="favourites-text">Favourites</span>
+            <div className="table-head-left">
+              <div className="favourites flex">
+                <img src={Star} className="favourites-star" />
+                <span className="favourites-text">Favourites</span>
+              </div>
+              <div className="cryptoCurrencies flex">
+                <span className="crypto-text">CryptoCurrencies</span>
+              </div>
+              <div className="defi flex">
+                <span className="defi-text">DeFi</span>
+              </div>
+              <div className="nft flex">
+                <span className="nft-text">NFTs & Collections</span>
+              </div>
             </div>
-            <div className="cryptoCurrencies flex">
-              <span className="crypto-text">CryptoCurrencies</span>
-            </div>
-            <div className="defi flex">
-              <span className="defi-text">DeFi</span>
-            </div>
-            <div className="nft flex">
-              <span className="nft-text">NFTs & Collections</span>
-            </div>
+            <div className="table-head-right">
+              <span className="show-rows">show rows</span>
+              <Select
+                value={rows}
+                onChange={handleChange}
+                className="select-container"
+                displayEmpty
+              >
+              <MenuItem value={10}>10</MenuItem>
+              <MenuItem value={25}>25</MenuItem>
+              <MenuItem value={50}>50</MenuItem>
+              <MenuItem value={100}>100</MenuItem>
+            </Select>
           </div>
         </div>
-      </Container>
     </div>
+      </Container >
+    </div >
   )
 }
 

@@ -17,12 +17,10 @@ import Modal from '@mui/material/Modal';
 import Pagination from '@mui/material/Pagination';
 
 
-const CryptoCurrencies = ({ data }) => {
+const CryptoCurrencies = ({ data,page,setPage,rowsPerPage}) => {
     const [open, setOpen] = useState(false);
     const [rowItem, setRowItem] = useState("");
 
-    const [page, setPage] = useState(1);
-    const [rowsPerPage] = useState(10);
 
     const handleOpen = (event, item) => {
         setOpen(true);
@@ -58,7 +56,7 @@ const CryptoCurrencies = ({ data }) => {
                                 .map((item, index) => (
                                     <TableRow key={item.id}>
                                         <TableCell className="tdStar"><img src={TableCellStar} alt="cellStar" /></TableCell>
-                                        <TableCell className="td1">{(page-1)*10+index+1}</TableCell>
+                                        <TableCell className="td1">{(page-1)*rowsPerPage+index+1}</TableCell>
                                         <TableCell className="td2">
                                             <div style={{ display: 'flex' }}>
                                                 <img src={item.image} className="coin-image" alt="coin" />
@@ -118,7 +116,7 @@ const CryptoCurrencies = ({ data }) => {
                                 .map((item, index) => (
                                     <TableRow key={item.id} onClick={(event) => handleOpen(event, item)} style={{ cursor: "pointer" }}>
                                         <TableCell className="tdStar"><img src={TableCellStar} alt="cellStar" /></TableCell>
-                                        <TableCell className="td1">{index + 1}</TableCell>
+                                        <TableCell className="td1">{(page-1)*rowsPerPage+index+1}</TableCell>
                                         <TableCell className="td2">
                                             <div style={{ display: 'flex' }}>
                                                 <img src={item.image} className="coin-image" alt="coin" />
@@ -205,6 +203,8 @@ const CryptoCurrencies = ({ data }) => {
                         onChange={(e, value) => setPage(value)}
                         count={Math.ceil(data.length / rowsPerPage)}
                         variant="outlined"
+                        size="small"
+                        color="primary" 
                         shape="rounded" />
                 </div>
             </Container>
