@@ -200,7 +200,7 @@ const CryptoCurrencies = ({ data,page,setPage,rowsPerPage}) => {
                         page={page}
                         onChange={(e, value) => setPage(value)}
                         // count={Math.ceil(data.length / rowsPerPage)}
-                        count={rowsPerPage}
+                        count={10}
                         variant="outlined"
                         size="small"
                         color="primary" 
