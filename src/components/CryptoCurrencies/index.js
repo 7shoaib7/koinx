@@ -14,11 +14,15 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Modal from '@mui/material/Modal';
+import Pagination from '@mui/material/Pagination';
 
 
 const CryptoCurrencies = ({ data }) => {
     const [open, setOpen] = useState(false);
-    const [rowItem, setRowItem] = useState("")
+    const [rowItem, setRowItem] = useState("");
+
+    const [page, setPage] = useState(1);
+    const [rowsPerPage] = useState(10);
 
     const handleOpen = (event, item) => {
         setOpen(true);
@@ -50,50 +54,51 @@ const CryptoCurrencies = ({ data }) => {
                         </TableHead>
 
                         <TableBody>
-                            {data.map((item, index) => (
-                                <TableRow key={item.id}>
-                                    <TableCell className="tdStar"><img src={TableCellStar} alt="cellStar" /></TableCell>
-                                    <TableCell className="td1">{index + 1}</TableCell>
-                                    <TableCell className="td2">
-                                        <div style={{ display: 'flex' }}>
-                                            <img src={item.image} className="coin-image" alt="coin" />
-                                            <span className="coin-name">{item.name}</span>
-                                            <span className="coin-symbol">{item.symbol.toUpperCase()}</span>
-                                        </div>
-                                    </TableCell>
-                                    <TableCell className="td3">
-                                        <span className="coin-price">${item["current_price"]}</span>
-                                    </TableCell>
-                                    <TableCell className="td4">
-                                        <div style={{ display: 'flex' }}>
-                                            <img src={RedDown} alt="redDown" style={{ marginRight: "0.3rem" }} />
-                                            <span className="coin-24H-text">{item["price_change_percentage_24h_in_currency"].toFixed(2)}%</span>
-                                        </div>
-                                    </TableCell>
-                                    <TableCell className="td5">
-                                        <div style={{ display: 'flex' }}>
-                                            <img src={GreenDown} alt="greenDown" style={{ marginRight: "0.3rem" }} />
-                                            <span className="coin-7D-text">{item["price_change_percentage_7d_in_currency"].toFixed(2)}%</span>
-                                        </div>
-                                    </TableCell>
-                                    <TableCell className="td6">
-                                        <span className="coin-market-cap">$1,502,989,963,439,782</span>
-                                    </TableCell>
-                                    <TableCell className="td7">
-                                        <div style={{ display: 'flex', flexDirection: 'column' }}>
-                                            <span className="coin-volume1">$51,502,989,963,439</span>
-                                            <span className="coin-volume2">932,071 {item.symbol.toUpperCase()}</span>
-                                        </div>
-                                    </TableCell>
-                                    <TableCell className="td8">
-                                        <span className="coin-circulating-supply">19220606 {item.symbol.toUpperCase()}</span>
-                                    </TableCell>
-                                    <TableCell className="tdMenu">
-                                        <img src={TableCellMenu} alt="tableMenu" />
-                                    </TableCell>
-                                </TableRow>
+                            {data.slice((page - 1) * rowsPerPage, page * rowsPerPage)
+                                .map((item, index) => (
+                                    <TableRow key={item.id}>
+                                        <TableCell className="tdStar"><img src={TableCellStar} alt="cellStar" /></TableCell>
+                                        <TableCell className="td1">{(page-1)*10+index+1}</TableCell>
+                                        <TableCell className="td2">
+                                            <div style={{ display: 'flex' }}>
+                                                <img src={item.image} className="coin-image" alt="coin" />
+                                                <span className="coin-name">{item.name}</span>
+                                                <span className="coin-symbol">{item.symbol.toUpperCase()}</span>
+                                            </div>
+                                        </TableCell>
+                                        <TableCell className="td3">
+                                            <span className="coin-price">${item["current_price"]}</span>
+                                        </TableCell>
+                                        <TableCell className="td4">
+                                            <div style={{ display: 'flex' }}>
+                                                <img src={RedDown} alt="redDown" style={{ marginRight: "0.3rem" }} />
+                                                <span className="coin-24H-text">{item["price_change_percentage_24h_in_currency"].toFixed(2)}%</span>
+                                            </div>
+                                        </TableCell>
+                                        <TableCell className="td5">
+                                            <div style={{ display: 'flex' }}>
+                                                <img src={GreenDown} alt="greenDown" style={{ marginRight: "0.3rem" }} />
+                                                <span className="coin-7D-text">{item["price_change_percentage_7d_in_currency"].toFixed(2)}%</span>
+                                            </div>
+                                        </TableCell>
+                                        <TableCell className="td6">
+                                            <span className="coin-market-cap">$1,502,989,963,439,782</span>
+                                        </TableCell>
+                                        <TableCell className="td7">
+                                            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                                <span className="coin-volume1">$51,502,989,963,439</span>
+                                                <span className="coin-volume2">932,071 {item.symbol.toUpperCase()}</span>
+                                            </div>
+                                        </TableCell>
+                                        <TableCell className="td8">
+                                            <span className="coin-circulating-supply">19220606 {item.symbol.toUpperCase()}</span>
+                                        </TableCell>
+                                        <TableCell className="tdMenu">
+                                            <img src={TableCellMenu} alt="tableMenu" />
+                                        </TableCell>
+                                    </TableRow>
 
-                            ))}
+                                ))}
                         </TableBody>
                     </Table>
 
@@ -109,89 +114,99 @@ const CryptoCurrencies = ({ data }) => {
                         </TableHead>
 
                         <TableBody>
-                            {data.map((item, index) => (
-                                <TableRow key={item.id} onClick={(event) => handleOpen(event, item)} style={{ cursor: "pointer" }}>
-                                    <TableCell className="tdStar"><img src={TableCellStar} alt="cellStar" /></TableCell>
-                                    <TableCell className="td1">{index + 1}</TableCell>
-                                    <TableCell className="td2">
-                                        <div style={{ display: 'flex' }}>
-                                            <img src={item.image} className="coin-image" alt="coin" />
-                                            <span className="coin-name">{item.name}</span>
-                                            <span className="coin-symbol">{item.symbol.toUpperCase()}</span>
-                                        </div>
-                                    </TableCell>
-                                    <TableCell className="td3">
-                                        <span className="coin-price">${item["current_price"]}</span>
-                                    </TableCell>
-                                    <TableCell className="td4">
-                                        <div style={{ display: 'flex' }}>
-                                            <img src={RedDown} alt="redDown" style={{ marginRight: "0.3rem" }} />
-                                            <span className="coin-24H-text">{item["price_change_percentage_24h_in_currency"].toFixed(2)}%</span>
-                                        </div>
-                                    </TableCell>
-                                </TableRow>
-                            ))}
+                            {data.slice((page - 1) * rowsPerPage, page * rowsPerPage)
+                                .map((item, index) => (
+                                    <TableRow key={item.id} onClick={(event) => handleOpen(event, item)} style={{ cursor: "pointer" }}>
+                                        <TableCell className="tdStar"><img src={TableCellStar} alt="cellStar" /></TableCell>
+                                        <TableCell className="td1">{index + 1}</TableCell>
+                                        <TableCell className="td2">
+                                            <div style={{ display: 'flex' }}>
+                                                <img src={item.image} className="coin-image" alt="coin" />
+                                                <span className="coin-name">{item.name}</span>
+                                                <span className="coin-symbol">{item.symbol.toUpperCase()}</span>
+                                            </div>
+                                        </TableCell>
+                                        <TableCell className="td3">
+                                            <span className="coin-price">${item["current_price"]}</span>
+                                        </TableCell>
+                                        <TableCell className="td4">
+                                            <div style={{ display: 'flex' }}>
+                                                <img src={RedDown} alt="redDown" style={{ marginRight: "0.3rem" }} />
+                                                <span className="coin-24H-text">{item["price_change_percentage_24h_in_currency"].toFixed(2)}%</span>
+                                            </div>
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
                         </TableBody>
                     </Table>
                 </TableContainer>
-             {rowItem ? (
-                <Modal
-                    open={open}
-                    onClose={handleClose}
-                    className="modal"
-                >
-                    <div className="modal-box">
-                        <div className="modal-box-header">
-                            <div className="modal-box-header-left">
-                                <img src={rowItem.image} className="coin-image" alt="coinImg" />
-                                <span className="coin-name">{rowItem.name}</span>
+                {rowItem ? (
+                    <Modal
+                        open={open}
+                        onClose={handleClose}
+                        className="modal"
+                    >
+                        <div className="modal-box">
+                            <div className="modal-box-header">
+                                <div className="modal-box-header-left">
+                                    <img src={rowItem.image} className="coin-image" alt="coinImg" />
+                                    <span className="coin-name">{rowItem.name}</span>
+                                </div>
+                                <div className="modal-box-header-right">
+                                    <img src={ModalCross} alt="cross" onClick={handleClose} style={{ cursor: 'pointer' }} />
+                                </div>
                             </div>
-                            <div className="modal-box-header-right">
-                                <img src={ModalCross} alt="cross" onClick={handleClose} style={{cursor: 'pointer'}}/>
-                            </div>
-                        </div>
 
-                        <div className="modal-box-top">
-                            <div className="modal-box-price modal-top-flex">
-                                <span className="th3">PRICE</span>
-                                <span className="coin-price">${rowItem["current_price"]}</span>
-                            </div>
-                            <div className="modal-box-24H modal-top-flex">
-                                <span className="th4">24H</span>
-                                <div style={{ display: "flex", alignItems: "center" }}>
-                                    <img src={RedDown} alt="redDown" style={{ marginRight: "0.3rem", height: "6px", width: "10px" }} />
-                                    <span className="coin-24H-text">{rowItem["price_change_percentage_24h_in_currency"].toFixed(2)}%</span>
+                            <div className="modal-box-top">
+                                <div className="modal-box-price modal-top-flex">
+                                    <span className="th3">PRICE</span>
+                                    <span className="coin-price">${rowItem["current_price"]}</span>
+                                </div>
+                                <div className="modal-box-24H modal-top-flex">
+                                    <span className="th4">24H</span>
+                                    <div style={{ display: "flex", alignItems: "center" }}>
+                                        <img src={RedDown} alt="redDown" style={{ marginRight: "0.3rem", height: "6px", width: "10px" }} />
+                                        <span className="coin-24H-text">{rowItem["price_change_percentage_24h_in_currency"].toFixed(2)}%</span>
+                                    </div>
+                                </div>
+                                <div className="modal-box-7D modal-top-flex">
+                                    <span className="th5">7D</span>
+                                    <div style={{ display: "flex", alignItems: "center" }}>
+                                        <img src={GreenDown} alt="greenDown" style={{ marginRight: "0.3rem" }} />
+                                        <span className="coin-7D-text">{rowItem["price_change_percentage_7d_in_currency"].toFixed(2)}%</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="modal-box-7D modal-top-flex">
-                                <span className="th5">7D</span>
-                                <div style={{ display: "flex", alignItems: "center" }}>
-                                    <img src={GreenDown} alt="greenDown" style={{ marginRight: "0.3rem" }} />
-                                    <span className="coin-7D-text">{rowItem["price_change_percentage_7d_in_currency"].toFixed(2)}%</span>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div className="modal-box-bottom">
-                            <div className="modal-box-market-cap modal-box-bottom-flex modal-box-margin">
-                                <span className="market-cap">MARKET CAP</span>
-                                <span className="coin-market-cap">$1,502,989,963,439,782</span>
-                            </div>
-                            <div className="modal-box-market-cap modal-box-bottom-flex modal-box-margin">
-                                <span className="volume-24H">VOLUME(24H)</span>
-                                <div>
-                                <span className="coin-volume1">$51,502,989,963,439</span><span className="coin-volume2"> (932,071 {rowItem.symbol.toUpperCase()})</span>
+                            <div className="modal-box-bottom">
+                                <div className="modal-box-market-cap modal-box-bottom-flex modal-box-margin">
+                                    <span className="market-cap">MARKET CAP</span>
+                                    <span className="coin-market-cap">$1,502,989,963,439,782</span>
                                 </div>
-                               
-                            </div>
-                            <div className="modal-box-market-cap modal-box-bottom-flex modal-box-margin">
-                                <span className="circulating">CIRCULATING SUPPLY</span>
-                                <span className="coin-circulating-supply">19220606 {rowItem.symbol.toUpperCase()}</span>
+                                <div className="modal-box-market-cap modal-box-bottom-flex modal-box-margin">
+                                    <span className="volume-24H">VOLUME(24H)</span>
+                                    <div>
+                                        <span className="coin-volume1">$51,502,989,963,439</span><span className="coin-volume2"> (932,071 {rowItem.symbol.toUpperCase()})</span>
+                                    </div>
+
+                                </div>
+                                <div className="modal-box-market-cap modal-box-bottom-flex modal-box-margin">
+                                    <span className="circulating">CIRCULATING SUPPLY</span>
+                                    <span className="coin-circulating-supply">19220606 {rowItem.symbol.toUpperCase()}</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </Modal>
-             ):null}   
+                    </Modal>
+                ) : null}
+
+                <div className="pagination">
+                    <Pagination
+                        page={page}
+                        onChange={(e, value) => setPage(value)}
+                        count={Math.ceil(data.length / rowsPerPage)}
+                        variant="outlined"
+                        shape="rounded" />
+                </div>
             </Container>
         </div >
     )
