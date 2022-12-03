@@ -99,8 +99,8 @@
 
 .select-container {
     width: 67px;
-    margin-left: 1rem;
-    height: 27px;
+    margin-left: 0.5rem;
+    height: 32px;
     background: #EFF2F5;
     border-radius: 8px !important;
     outline: none !important;
