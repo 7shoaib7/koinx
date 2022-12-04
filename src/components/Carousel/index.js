@@ -7,6 +7,7 @@ import Carousel3 from "../../assets/Carousel3.svg";
 import Star from "../../assets/Star.svg";
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
+import OutlinedInput from '@mui/material/OutlinedInput';
 import "./styles.css"
 
 const breakPoints = [
@@ -19,7 +20,7 @@ const breakPoints = [
 
 const CarouselView = ({setRowsPerPage}) => {
   // const [items, setItems] = useState([1, 2, 3, 4, 5, 6, 7, 8]);
-  const [rows, setRows] = useState("");
+  const [rows, setRows] = useState(10);
   const handleChange = (event) => {
     setRows(event.target.value);
     setRowsPerPage(event.target.value);
@@ -95,7 +96,6 @@ const CarouselView = ({setRowsPerPage}) => {
                 value={rows}
                 onChange={handleChange}
                 className="select-container"
-                displayEmpty
               >
               <MenuItem value={10}>10</MenuItem>
               <MenuItem value={25}>25</MenuItem>
