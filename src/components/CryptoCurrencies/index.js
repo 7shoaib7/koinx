@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import "./styles.css";
 import Container from '@mui/material/Container';
 import DownArrow from "../../assets/DownArrow.svg";
@@ -15,21 +15,27 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Modal from '@mui/material/Modal';
 import Pagination from '@mui/material/Pagination';
+import StarIcon from '@mui/icons-material/Star';
 
 
-const CryptoCurrencies = ({ data,page,setPage,rowsPerPage}) => {
+
+const CryptoCurrencies = ({ data,page,setPage,rowsPerPage,list,handleList}) => {
     const [open, setOpen] = useState(false);
     const [rowItem, setRowItem] = useState("");
+
 
 
     const handleOpen = (event, item) => {
         setOpen(true);
         setRowItem(item)
-        console.log(item)
+        // console.log(item)
     }
     const handleClose = () => setOpen(false);
 
 
+    useEffect(() => {
+        console.log("list",list)
+    },[list])
 
     return (
         <div className="tableView">
@@ -54,7 +60,7 @@ const CryptoCurrencies = ({ data,page,setPage,rowsPerPage}) => {
                         <TableBody>
                             {data.map((item, index) => (
                                     <TableRow key={item.id}>
-                                        <TableCell className="tdStar"><img src={TableCellStar} alt="cellStar" /></TableCell>
+                                        <TableCell className="tdStar" onClick={()=>handleList(item)}>{!list.includes(item) ?<img src={TableCellStar} alt="cellStar" />:<StarIcon fontSize="small"/>}</TableCell>
                                         <TableCell className="td1">{(page-1)*rowsPerPage+index+1}</TableCell>
                                         <TableCell className="td2">
                                             <div style={{ display: 'flex' }}>

@@ -18,7 +18,7 @@ const breakPoints = [
 ];
 
 
-const CarouselView = ({setRowsPerPage}) => {
+const CarouselView = ({setRowsPerPage,list}) => {
   // const [items, setItems] = useState([1, 2, 3, 4, 5, 6, 7, 8]);
   const [rows, setRows] = useState(10);
   const handleChange = (event) => {
@@ -73,6 +73,12 @@ const CarouselView = ({setRowsPerPage}) => {
         </div>
         <div className="carousel-bottom-content">
           <span className="top-100">Top 100 Cryptocurrencies by Market Cap</span>
+            
+           <div className="list-item">
+               {list.map(item=>(
+                   <p key={item.id} style={{display:"inline",marginRight:"0.6rem"}}>{item.symbol.toUpperCase()}</p>
+               ))}
+           </div>
 
           <div className="table-head">
             <div className="table-head-left">

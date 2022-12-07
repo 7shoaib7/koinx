@@ -163,6 +163,9 @@
     justify-content: flex-end;
 }
 
+.tdStar{
+    cursor: pointer;
+}
 
 @media(max-width: 767px) {
     .tableLarge {

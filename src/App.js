@@ -8,9 +8,26 @@ import CryptoCurrencies from "./components/CryptoCurrencies";
 
 function App() {
 const [data,setData] = useState([]);
+const [list,setList] =useState([]);
 
 const [page, setPage] = useState(1);
 const [rowsPerPage,setRowsPerPage] = useState(10);
+
+
+
+const handleList = (item) => {
+  if(list.includes(item)){
+    const filt = list.filter(el=> el!== item);
+    setList(filt)
+  }
+
+  if(!list.includes(item)){
+      setList((prev)=>([
+          ...prev,
+          item
+      ]))
+  }
+}
 
 const fetchData = async() =>{
    const response = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=inr&amp;order=market_cap_desc&amp;per_page=${rowsPerPage}&amp;page=${page}&amp;sparkline=false&amp;price_change_percentage=24h%2C7d`)
@@ -33,8 +50,8 @@ useEffect(() => {
 return (
     <div className="App">
            <Header/>
-           <CarouselView setRowsPerPage={setRowsPerPage}/>
-           <CryptoCurrencies data={data} page={page} setPage={setPage} rowsPerPage={rowsPerPage}/>
+           <CarouselView setRowsPerPage={setRowsPerPage} list={list}/>
+           <CryptoCurrencies data={data} page={page} setPage={setPage} rowsPerPage={rowsPerPage} list={list} handleList={handleList}/>
     </div>
   );
 }
